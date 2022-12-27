@@ -520,19 +520,20 @@ public class EmojiParser {
     );
 
     public EmojiParser() throws FileNotFoundException {
+        System.out.println("parser initiated");
         gson = new GsonBuilder().setPrettyPrinting().create();
         jsonArrayList = new ArrayList<>();
 
         try (Reader reader = new FileReader(
-                "C:\\Users\\wlxmath\\IdeaProjects\\EmojiKitchenBackend\\src\\main\\resources\\emojiData.json")) {
-
+                "src/main/resources/emojiData.json")) {
             // Convert JSON to JsonElement, and later to String
             json = gson.fromJson(reader, JsonElement.class);
             JsonObject  jsonObject = json.getAsJsonObject();
             for(int i = 0; i < supportedEmojis.size(); i++){
                 jsonArrayList.add(jsonObject.getAsJsonArray(supportedEmojis.get(i)));
-
-//                jsonArrayList.get(i).forEach();
+                
+                System.out.println("=====================" + supportedEmojis.get(i) + "========================");
+                jsonArrayList.get(i).forEach(System.out::println);
             }
 
         } catch (IOException e) {

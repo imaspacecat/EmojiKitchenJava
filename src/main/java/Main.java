@@ -7,7 +7,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         EmojiParser parser = new EmojiParser();
-        System.out.println(parser.toString());
+        
 
 
 
